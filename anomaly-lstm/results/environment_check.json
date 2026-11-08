@@ -1,0 +1,29 @@
+{
+  "sys_executable": "D:\\LSTM\\.venv\\Scripts\\python.exe",
+  "sys_prefix": "D:\\LSTM\\.venv",
+  "sys_base_prefix": "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python312",
+  "kernel_argv": [
+    "D:\\LSTM\\.venv\\Scripts\\python.exe",
+    "-Xfrozen_modules=off",
+    "-m",
+    "ipykernel_launcher",
+    "-f",
+    "{connection_file}"
+  ],
+  "notebooks": [
+    {
+      "notebook": "01_data_exploration.ipynb",
+      "kernel": "lstm-venv",
+      "sys_executable": "D:\\LSTM\\.venv\\Scripts\\python.exe",
+      "code_cells": 6,
+      "passed": true
+    },
+    {
+      "notebook": "02_preprocessing.ipynb",
+      "kernel": "lstm-venv",
+      "sys_executable": "D:\\LSTM\\.venv\\Scripts\\python.exe",
+      "code_cells": 8,
+      "passed": true
+    }
+  ]
+}

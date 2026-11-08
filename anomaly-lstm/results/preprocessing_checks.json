@@ -1,0 +1,126 @@
+{
+  "checks": {
+    "train": "PASS: all windows/indices/timestamps/labels/values checked",
+    "validation": "PASS: all windows/indices/timestamps/labels/values checked",
+    "calibration": "PASS: all windows/indices/timestamps/labels/values checked",
+    "test": "PASS: all windows/indices/timestamps/labels/values checked",
+    "guards_and_scoring": "PASS: mixed boundaries/gaps rejected; synthetic score and quantile verified",
+    "split": "PASS: disjoint source-row IDs and chronological development partition",
+    "scaler": "PASS: fitted on train only, manual statistics, held-out transform and inverse verified",
+    "artifact_roundtrip": "PASS: all tensors/labels/CSV rows/mapping/scaler reloaded and compared"
+  },
+  "splits": [
+    {
+      "split": "train",
+      "source": "artificialNoAnomaly/art_daily_small_noise.csv",
+      "rows": 2304,
+      "first_row": 0,
+      "last_row": 2303,
+      "start": "2014-04-01 00:00:00",
+      "end": "2014-04-08 23:55:00",
+      "normal": 2304,
+      "anomaly": 0
+    },
+    {
+      "split": "validation",
+      "source": "artificialNoAnomaly/art_daily_small_noise.csv",
+      "rows": 864,
+      "first_row": 2304,
+      "last_row": 3167,
+      "start": "2014-04-09 00:00:00",
+      "end": "2014-04-11 23:55:00",
+      "normal": 864,
+      "anomaly": 0
+    },
+    {
+      "split": "calibration",
+      "source": "artificialNoAnomaly/art_daily_small_noise.csv",
+      "rows": 864,
+      "first_row": 3168,
+      "last_row": 4031,
+      "start": "2014-04-12 00:00:00",
+      "end": "2014-04-14 23:55:00",
+      "normal": 864,
+      "anomaly": 0
+    },
+    {
+      "split": "test",
+      "source": "artificialWithAnomaly/art_daily_jumpsup.csv",
+      "rows": 4032,
+      "first_row": 0,
+      "last_row": 4031,
+      "start": "2014-04-01 00:00:00",
+      "end": "2014-04-14 23:55:00",
+      "normal": 3629,
+      "anomaly": 403
+    }
+  ],
+  "windows": [
+    {
+      "split": "train",
+      "shape": "(2017, 288, 1)",
+      "scored_points": 2017,
+      "unscored_prefix": 287,
+      "endpoint_positive": 0,
+      "any_positive": 0
+    },
+    {
+      "split": "validation",
+      "shape": "(577, 288, 1)",
+      "scored_points": 577,
+      "unscored_prefix": 287,
+      "endpoint_positive": 0,
+      "any_positive": 0
+    },
+    {
+      "split": "calibration",
+      "shape": "(577, 288, 1)",
+      "scored_points": 577,
+      "unscored_prefix": 287,
+      "endpoint_positive": 0,
+      "any_positive": 0
+    },
+    {
+      "split": "test",
+      "shape": "(3745, 288, 1)",
+      "scored_points": 3745,
+      "unscored_prefix": 287,
+      "endpoint_positive": 403,
+      "any_positive": 690
+    }
+  ],
+  "scaler": {
+    "class": "StandardScaler",
+    "features": [
+      "value"
+    ],
+    "mean": [
+      42.435957838207116
+    ],
+    "scale": [
+      28.03426473768108
+    ],
+    "var": [
+      785.9199993823889
+    ],
+    "n_samples_seen": 2304,
+    "fit_source": "artificialNoAnomaly/art_daily_small_noise.csv",
+    "fit_source_rows_inclusive": [
+      0,
+      2303
+    ],
+    "fit_split": "train",
+    "commit": "ea702d75cc2258d9d7dd35ca8e5e2539d71f3140"
+  },
+  "trained": false,
+  "threshold_selected": false,
+  "environment": {
+    "sys_executable": "D:\\LSTM\\.venv\\Scripts\\python.exe",
+    "sys_prefix": "D:\\LSTM\\.venv",
+    "sys_base_prefix": "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python312",
+    "python": "3.12.10",
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "scikit-learn": "1.5.1"
+  }
+}

@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+data/raw/
+data/processed/
+results/*.npz
+results/*.pkl
+results/*.keras
+results/*.h5

@@ -1,0 +1,52 @@
+{
+  "dataset": "NAB artificial pair",
+  "commit": "ea702d75cc2258d9d7dd35ca8e5e2539d71f3140",
+  "audit": {
+    "normal": {
+      "rows": 4032,
+      "features": 1,
+      "normal": 4032,
+      "anomaly": 0,
+      "missing_cells": 0,
+      "nonfinite_values": 0,
+      "duplicate_rows": 0,
+      "duplicate_timestamps": 0,
+      "repeated_values": 0,
+      "ordered": true,
+      "non_5min_gaps": 0,
+      "start": "2014-04-01 00:00:00",
+      "end": "2014-04-14 23:55:00"
+    },
+    "test": {
+      "rows": 4032,
+      "features": 1,
+      "normal": 3629,
+      "anomaly": 403,
+      "missing_cells": 0,
+      "nonfinite_values": 0,
+      "duplicate_rows": 0,
+      "duplicate_timestamps": 0,
+      "repeated_values": 0,
+      "ordered": true,
+      "non_5min_gaps": 0,
+      "start": "2014-04-01 00:00:00",
+      "end": "2014-04-14 23:55:00"
+    }
+  },
+  "shared_timestamps": 4032,
+  "cross_source_duplicate_records": 0,
+  "label_policy": "inclusive combined_windows intervals; not physical point ground truth",
+  "checks_passed": [
+    "schema",
+    "label domain and inclusive intervals",
+    "finite values",
+    "strict timestamps and 5-minute cadence",
+    "within/cross-source duplicates"
+  ],
+  "limitations": [
+    "No requirement image received",
+    "Only chosen NAB pair downloaded",
+    "Synthetic independent sources, not an official supervised split",
+    "Test inspected for audit; no training or threshold fitting"
+  ]
+}

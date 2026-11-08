@@ -1,0 +1,70 @@
+{
+  "status": "proposal_for_review_no_training",
+  "seed": 42,
+  "dataset_commit": "ea702d75cc2258d9d7dd35ca8e5e2539d71f3140",
+  "normal_source": "artificialNoAnomaly/art_daily_small_noise.csv",
+  "test_source": "artificialWithAnomaly/art_daily_jumpsup.csv",
+  "split_rows": {
+    "train": [
+      0,
+      2303
+    ],
+    "validation": [
+      2304,
+      3167
+    ],
+    "calibration": [
+      3168,
+      4031
+    ],
+    "test": [
+      0,
+      4031
+    ]
+  },
+  "window_length": 288,
+  "stride": 1,
+  "feature_names": [
+    "value"
+  ],
+  "label_policy": "inclusive NAB combined_windows, endpoint primary, any diagnostic",
+  "score": "endpoint feature-mean squared reconstruction error",
+  "threshold": {
+    "source": "calibration normal only",
+    "quantile": 0.99,
+    "method": "higher",
+    "comparison": ">"
+  },
+  "baselines": [
+    "train mean reconstruction",
+    "train slot-of-day median reconstruction"
+  ],
+  "lstm": {
+    "encoder_units": 32,
+    "decoder_units": 32,
+    "repeat_vector": 288,
+    "output": "Dense(1) per timestep",
+    "reconstruction_order": "forward",
+    "loss": "full-window MSE",
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "max_epochs": 50,
+    "shuffle": false,
+    "early_stopping": {
+      "monitor": "validation MSE",
+      "patience": 5,
+      "restore_best_weights": true
+    }
+  },
+  "metrics_later": [
+    "confusion matrix",
+    "precision",
+    "recall",
+    "F1",
+    "average precision",
+    "ROC-AUC"
+  ],
+  "point_adjustment": false,
+  "test_used_for": "data audit only in stage 1; final evaluation later"
+}
