@@ -1,0 +1,14 @@
+{
+  "locked_checkpoint_sha256": "e1ec787a5268aaaa302458258f6980859c5c111201cc0d8be3ab33060deba8cb",
+  "chosen_at_utc": "2026-11-08T14:06:45.194618+00:00",
+  "source": "normal calibration endpoints only",
+  "n_calibration": 577,
+  "quantile": 0.99,
+  "method": "higher",
+  "comparison": ">",
+  "thresholds": {
+    "train_mean": 2.5269882678985596,
+    "seasonal_median": 0.11940731853246689,
+    "lstm_autoencoder": 3.41666579246521
+  }
+}

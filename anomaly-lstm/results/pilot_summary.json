@@ -1,0 +1,138 @@
+{
+  "environment": {
+    "sys_executable": "D:\\LSTM\\.venv\\Scripts\\python.exe",
+    "python": "3.12.10",
+    "torch": "2.7.1+cu126",
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "device": "cuda:0",
+    "device_name": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+    "cuda_runtime": "12.6",
+    "cudnn": 90701,
+    "gpu_memory_bytes": 4294443008,
+    "deterministic_algorithms": true,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "tf32": false,
+    "cpu_threads": 4
+  },
+  "training": {
+    "best_epoch": 26,
+    "best_validation_mse": 0.8829669106357846,
+    "epochs_run": 31,
+    "training_seconds": 31.476968499999202,
+    "stopped_early": true,
+    "parameter_count": 12961
+  },
+  "notebook_seconds_to_summary": 47.01123080000252,
+  "checkpoint_lock": {
+    "checkpoint": "pilot_best.pt",
+    "sha256": "e1ec787a5268aaaa302458258f6980859c5c111201cc0d8be3ab33060deba8cb",
+    "locked_at_utc": "2026-11-08T14:06:44.254364+00:00",
+    "config_sha256": "8d7afac9b6566152ec64cc83c31a8d359e17cf3cc7452a68e00f9ad1beb77112",
+    "best_epoch": 26,
+    "best_validation_mse": 0.8829669106357846,
+    "restored_validation_mse": 0.8829668941654695,
+    "selection_uses": [
+      "train",
+      "validation"
+    ],
+    "calibration_or_test_used_for_selection": false
+  },
+  "thresholds": {
+    "locked_checkpoint_sha256": "e1ec787a5268aaaa302458258f6980859c5c111201cc0d8be3ab33060deba8cb",
+    "chosen_at_utc": "2026-11-08T14:06:45.194618+00:00",
+    "source": "normal calibration endpoints only",
+    "n_calibration": 577,
+    "quantile": 0.99,
+    "method": "higher",
+    "comparison": ">",
+    "thresholds": {
+      "train_mean": 2.5269882678985596,
+      "seasonal_median": 0.11940731853246689,
+      "lstm_autoencoder": 3.41666579246521
+    }
+  },
+  "test_evaluation_started_utc": "2026-11-08T14:06:45.275942+00:00",
+  "test_points": 3745,
+  "test_positive_points": 403,
+  "test_positive_rate": 0.10761014686248331,
+  "metrics": [
+    {
+      "method": "train_mean",
+      "Precision": 0.6256983240223464,
+      "Recall": 0.27791563275434245,
+      "F1": 0.3848797250859107,
+      "Average Precision (AP)": 0.3558291316930368,
+      "ROC-AUC": 0.5192578699846899,
+      "TN": 3275,
+      "FP": 67,
+      "FN": 291,
+      "TP": 112,
+      "threshold": 2.5269882678985596,
+      "n_evaluated": 3745,
+      "n_positive": 403,
+      "predicted_positive": 179,
+      "predicted_positive_rate": 0.047797062750333776
+    },
+    {
+      "method": "seasonal_median",
+      "Precision": 0.711764705882353,
+      "Recall": 0.3002481389578164,
+      "F1": 0.4223385689354276,
+      "Average Precision (AP)": 0.38910558706083037,
+      "ROC-AUC": 0.5791245491251282,
+      "TN": 3293,
+      "FP": 49,
+      "FN": 282,
+      "TP": 121,
+      "threshold": 0.11940731853246689,
+      "n_evaluated": 3745,
+      "n_positive": 403,
+      "predicted_positive": 170,
+      "predicted_positive_rate": 0.04539385847797063
+    },
+    {
+      "method": "lstm_autoencoder",
+      "Precision": 0.6535947712418301,
+      "Recall": 0.24813895781637718,
+      "F1": 0.3597122302158273,
+      "Average Precision (AP)": 0.32760997111159285,
+      "ROC-AUC": 0.5023462570517647,
+      "TN": 3289,
+      "FP": 53,
+      "FN": 303,
+      "TP": 100,
+      "threshold": 3.41666579246521,
+      "n_evaluated": 3745,
+      "n_positive": 403,
+      "predicted_positive": 153,
+      "predicted_positive_rate": 0.04085447263017356
+    }
+  ],
+  "checks": {
+    "environment": "PASS: dedicated .venv, tensor device smoke check",
+    "preprocessing": "PASS: train-only scaler and every train/validation window matches original rows",
+    "baseline_fit": "PASS: mean and all 288 slot medians use unique normal train rows only; eight per slot",
+    "architecture": "PASS: observed repeated final hidden as only decoder input, correct output shape, no shortcut",
+    "checkpoint_selection": "PASS: minimum validation MSE, early-stop patience, restored weights and recomputed validation loss",
+    "calibration": "PASS: frozen checkpoint precedes thresholds; each quantile computed only on 577 normal endpoints",
+    "test_alignment": "PASS: all methods have exactly the same 3745 source rows/timestamps/endpoint labels; 403 positives",
+    "finite_scores": "PASS: finite reconstructions, scores and thresholds for all methods",
+    "checkpoint_reload": "PASS: full calibration/test reconstructions allclose; identical binary predictions",
+    "prediction_integrity": "PASS: shared endpoints, original timestamp slots, strict >, CSV round-trip, no point adjustment",
+    "frozen_artifacts": "PASS: checkpoint, config and preprocessing hashes unchanged through evaluation"
+  },
+  "checkpoint_reload_max_abs_difference": {
+    "calibration": 0.0,
+    "test": 0.0
+  },
+  "limitations": [
+    "Synthetic NAB pair, single event, not official NAB scoring",
+    "NAB intervals are detection tolerance regions, not exact physical point labels",
+    "Only three calibration days; overlapping scores are correlated",
+    "One fixed configuration and one seed; no generalization claim"
+  ],
+  "tuning_performed": false,
+  "point_adjustment": false
+}

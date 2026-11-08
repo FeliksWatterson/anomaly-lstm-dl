@@ -1,0 +1,14 @@
+{
+  "checkpoint": "pilot_best.pt",
+  "sha256": "e1ec787a5268aaaa302458258f6980859c5c111201cc0d8be3ab33060deba8cb",
+  "locked_at_utc": "2026-11-08T14:06:44.254364+00:00",
+  "config_sha256": "8d7afac9b6566152ec64cc83c31a8d359e17cf3cc7452a68e00f9ad1beb77112",
+  "best_epoch": 26,
+  "best_validation_mse": 0.8829669106357846,
+  "restored_validation_mse": 0.8829668941654695,
+  "selection_uses": [
+    "train",
+    "validation"
+  ],
+  "calibration_or_test_used_for_selection": false
+}

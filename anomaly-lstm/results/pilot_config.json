@@ -1,0 +1,40 @@
+{
+  "seed": 42,
+  "length": 288,
+  "stride": 1,
+  "features": 1,
+  "hidden": 32,
+  "architecture": "LSTM(1,32) -> final hidden -> repeat(288) -> LSTM(32,32) -> Linear(32,1)",
+  "teacher_forcing": false,
+  "input_shortcut": false,
+  "decoder_initial_state": "zeros",
+  "loss": "full-window MSE",
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "batch_size": 32,
+  "max_epochs": 50,
+  "shuffle": false,
+  "patience": 5,
+  "min_delta": 0.0,
+  "restore_best_weights": true,
+  "selection": "validation full-window MSE only",
+  "normal_split_days": [
+    8,
+    3,
+    3
+  ],
+  "score": "endpoint feature-mean MSE",
+  "threshold_quantile": 0.99,
+  "threshold_method": "higher",
+  "prediction_comparison": ">",
+  "test_points": 3745,
+  "point_adjustment": false,
+  "dataset_commit": "ea702d75cc2258d9d7dd35ca8e5e2539d71f3140",
+  "preprocessing_hashes": {
+    "scaler.json": "8b5e4a4cc2d5a920b1741ea28499f1160b59db8817e30e63263625662e460767",
+    "split_rows.csv": "6760ab1dd6e7f29809c8a55d1a0d91955cd210ff3cf0f7fe8a1cf9fdef888ad3",
+    "windows.npz": "7ceb785f0b7ca406cb7eebbe6fce01ef7f1b3a54a338a7ee83164cb86a70803f",
+    "window_mapping.csv": "c2a04c38a5a836d7882b00b865be2d7e009be0da5ea8bf087106832cf2dc4270"
+  },
+  "utils_sha256": "7af417b6c4f666a4f37895a893113e78796b25ebff7fd2e65ab352c0f6f38567"
+}

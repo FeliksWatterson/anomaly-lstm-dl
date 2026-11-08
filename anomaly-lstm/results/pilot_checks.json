@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "environment": "PASS: dedicated .venv, tensor device smoke check",
+    "preprocessing": "PASS: train-only scaler and every train/validation window matches original rows",
+    "baseline_fit": "PASS: mean and all 288 slot medians use unique normal train rows only; eight per slot",
+    "architecture": "PASS: observed repeated final hidden as only decoder input, correct output shape, no shortcut",
+    "checkpoint_selection": "PASS: minimum validation MSE, early-stop patience, restored weights and recomputed validation loss",
+    "calibration": "PASS: frozen checkpoint precedes thresholds; each quantile computed only on 577 normal endpoints",
+    "test_alignment": "PASS: all methods have exactly the same 3745 source rows/timestamps/endpoint labels; 403 positives",
+    "finite_scores": "PASS: finite reconstructions, scores and thresholds for all methods",
+    "checkpoint_reload": "PASS: full calibration/test reconstructions allclose; identical binary predictions",
+    "prediction_integrity": "PASS: shared endpoints, original timestamp slots, strict >, CSV round-trip, no point adjustment",
+    "frozen_artifacts": "PASS: checkpoint, config and preprocessing hashes unchanged through evaluation"
+  },
+  "reload_max_abs_difference": {
+    "calibration": 0.0,
+    "test": 0.0
+  }
+}

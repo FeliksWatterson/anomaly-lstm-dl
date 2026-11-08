@@ -1,0 +1,8 @@
+{
+  "best_epoch": 26,
+  "best_validation_mse": 0.8829669106357846,
+  "epochs_run": 31,
+  "training_seconds": 31.476968499999202,
+  "stopped_early": true,
+  "parameter_count": 12961
+}

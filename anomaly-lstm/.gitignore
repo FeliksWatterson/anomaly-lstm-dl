@@ -10,3 +10,5 @@ results/*.npz
 results/*.pkl
 results/*.keras
 results/*.h5
+results/**/*.pt
+results/**/*.pth
